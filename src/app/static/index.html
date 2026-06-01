@@ -7,10 +7,51 @@
     <link rel="stylesheet" href="/static/styles.css" />
   </head>
   <body>
-    <main>
-      <h1>APM P50</h1>
-      <p>Dashboard inicial para monitoramento de latencias.</p>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Motor de metricas</p>
+          <h1>APM P50</h1>
+        </div>
+        <div class="actions">
+          <button id="simulate-small" type="button">Simular 1k</button>
+          <button id="simulate-large" type="button">Simular 10k</button>
+          <button id="reset" class="secondary" type="button">Limpar</button>
+        </div>
+      </header>
+
+      <section class="metrics" aria-label="Metricas principais">
+        <article>
+          <span>P50</span>
+          <strong id="p50">--</strong>
+          <small>mediana em ms</small>
+        </article>
+        <article>
+          <span>Media</span>
+          <strong id="average">--</strong>
+          <small>sensivel a outliers</small>
+        </article>
+        <article>
+          <span>Total</span>
+          <strong id="count">0</strong>
+          <small>amostras na janela</small>
+        </article>
+        <article>
+          <span>Maximo</span>
+          <strong id="max">--</strong>
+          <small>maior latencia</small>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Latencias recentes</h2>
+          <p id="range">Sem dados ainda</p>
+        </div>
+        <canvas id="chart" width="960" height="320" aria-label="Grafico de latencias recentes"></canvas>
+      </section>
     </main>
+
     <script src="/static/app.js"></script>
   </body>
 </html>

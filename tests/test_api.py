@@ -1,7 +1,7 @@
 ﻿from fastapi.testclient import TestClient
 
 from src.app.api import store
-from src.app.main import app
+from src.app.server import app
 
 client = TestClient(app)
 
@@ -37,3 +37,4 @@ def test_reset_limpa_metricas():
 
     assert response.status_code == 200
     assert response.json()["count"] == 0
+

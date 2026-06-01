@@ -11,8 +11,7 @@
 
 def _mediana_do_grupo(grupo):
     grupo_ordenado = _ordenacao_insercao(list(grupo))
-    return grupo_ordenado[len(grupo_ordenado) // 2]
-
+    return grupo_ordenado[(len(grupo_ordenado) - 1) // 2]
 
 def selecionar_kesimo(valores, k):
     if len(valores) == 1:

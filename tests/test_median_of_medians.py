@@ -1,6 +1,6 @@
-﻿import pytest
-from app.median_of_medians import selecionar_kesimo, calcular_p50
-import random
+﻿import random
+
+from src.app.median_of_medians import calcular_p50, selecionar_kesimo
 
 
 def test_selecionar_kesimo_lista_pequena():
@@ -30,6 +30,7 @@ def test_selecionar_kesimo_com_duplicatas():
     for k in range(len(valores)):
         assert selecionar_kesimo(list(valores), k) == sorted(valores)[k]
 
+
 def test_p50_lista_vazia():
     assert calcular_p50([]) is None
 
@@ -53,7 +54,6 @@ def test_p50_estavel_com_outliers():
     p50 = calcular_p50(valores)
     media = sum(valores) / len(valores)
     assert p50 < media
-
 
 
 def test_selecionar_kesimo_lista_grande_aleatoria():
